@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care of India - AI-Powered Hospital Management System</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#0077cc', secondary: '#5cb4e5' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #0077cc, #5cb4e5);
+        }
+
+        .bg-gradient {
+            background-image: linear-gradient(135deg, #0077cc, #5cb4e5);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 119, 204, 0.1);
+        }
+
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 119, 204, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.3);
+        }
+
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0077cc;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .custom-checkbox:checked {
+            background-color: #0077cc;
+        }
+
+        .custom-checkbox:checked::after {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a style="width: 200px;height: 65px;" href="#" class="text-2xl font-['Pacifico'] text-primary"><img src="https://i.ibb.co/WNZbdhpS/Whats-App-Image-2025-07-07-at-6-02-51-PM-removebg-preview.png" style="width: 200px;
+    height: -webkit-fill-available;
+    object-fit: cover;" alt="Health care of india"></a>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-800 hover:text-primary font-medium transition-colors">Home</a>
+                <a href="#services" class="text-gray-800 hover:text-primary font-medium transition-colors">Services</a>
+                <a href="#about" class="text-gray-800 hover:text-primary font-medium transition-colors">About</a>
+                <a href="#contact" class="text-gray-800 hover:text-primary font-medium transition-colors">Contact</a>
+                <a href="#appointment"
+                    class="bg-primary text-white px-6 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Book
+                    Appointment</a>
+            </nav>
+            <div class="md:hidden flex items-center">
+                <button class="text-gray-800 focus:outline-none">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                        <i class="ri-menu-line ri-lg"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-24 relative overflow-hidden hero-pattern">
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="w-full md:w-1/2 fade-in">
+                    <span
+                        class="inline-block bg-blue-50 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">Next-Gen
+                        Healthcare Solution</span>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+                        <span class="text-gradient">Next-Gen</span><br>
+                        Hospital Management.<br>
+                        <span class="text-primary">Now.</span>
+                    </h1>
+                    <p class="text-xl text-gray-700 mb-8 leading-relaxed">Transform your healthcare facility with
+                        AI-powered automation, streamlined workflows, and intelligent patient care management.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#"
+                            class="group bg-primary text-white px-8 py-4 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                            Get Started
+                            <div
+                                class="w-5 h-5 flex items-center justify-center transition-transform group-hover:translate-x-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="group border-2 border-primary text-primary px-8 py-4 !rounded-button whitespace-nowrap font-medium hover:bg-primary hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-play-circle-line"></i>
+                            </div>
+                            Watch Demo
+                        </a>
+                    </div>
+                    <div class="mt-12 grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1">500+</div>
+                            <div class="text-gray-600 text-sm">Hospitals</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1">1M+</div>
+                            <div class="text-gray-600 text-sm">Patients Served</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1">99.9%</div>
+                            <div class="text-gray-600 text-sm">Uptime</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 float-animation">
+                    <div class="relative">
+                        <div
+                            class="absolute -top-2 -right-8 w-64 h-64 bg-blue-50 rounded-full filter blur-3xl opacity-30">
+                        </div>
+                        
+                        <video src="/assets/WhatsApp Video 2025-07-07 at 6.02.55 PM.mp4" loop autoplay="1" class="w-full h-auto rounded-2xl shadow-2xl relative z-10"></video>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Key Features Grid -->
+    <section id="services" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Transforming Healthcare Management</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Our comprehensive suite of AI-powered tools
+                    streamlines hospital operations and enhances patient care.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-brain-line ri-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AI-Assisted Diagnosis</h3>
+                    <p class="text-gray-700">Advanced machine learning algorithms help doctors identify patterns and
+                        make more accurate diagnoses, reducing human error and improving patient outcomes.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-calendar-check-line ri-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Automated Appointment Scheduling</h3>
+                    <p class="text-gray-700">Intelligent scheduling system optimizes doctor availability, reduces wait
+                        times, and sends automated reminders to minimize no-shows.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8 feature-card transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-heart-pulse-line ri-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-time Patient Monitoring</h3>
+                    <p class="text-gray-700">Continuous monitoring of vital signs with intelligent alerts for early
+                        intervention, ensuring timely care and preventing complications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Proven Results for Healthcare Providers</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Our platform delivers measurable improvements in
+                    efficiency, accuracy, and patient satisfaction.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 border border-blue-100 rounded-lg">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center text-primary">
+                            <i class="ri-time-line ri-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2">60%</h3>
+                    <p class="text-xl font-medium text-gray-700">Reduced Wait Times</p>
+                    <p class="text-gray-600 mt-2">Patients spend less time waiting and more time receiving care</p>
+                </div>
+                <div class="text-center p-8 border border-blue-100 rounded-lg">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center text-primary">
+                            <i class="ri-microscope-line ri-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2">40%</h3>
+                    <p class="text-xl font-medium text-gray-700">Improved Diagnosis Accuracy</p>
+                    <p class="text-gray-600 mt-2">AI-assisted diagnostics enhance clinical decision-making</p>
+                </div>
+                <div class="text-center p-8 border border-blue-100 rounded-lg">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center text-primary">
+                            <i class="ri-line-chart-line ri-2x"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2">50%</h3>
+                    <p class="text-xl font-medium text-gray-700">Enhanced Staff Productivity</p>
+                    <p class="text-gray-600 mt-2">Automation reduces administrative burden on healthcare staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- AI Technology Showcase -->
+    <section class="py-20 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Advanced AI Technology for Modern Healthcare</h2>
+                    <p class="text-lg text-gray-700 mb-6">Our AI-powered system learns from millions of medical records
+                        to provide intelligent assistance to healthcare professionals.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary mt-1 mr-3">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Smart Scheduling Algorithm</h4>
+                                <p class="text-gray-700">Optimizes appointment slots based on doctor availability,
+                                    patient needs, and procedure types</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary mt-1 mr-3">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Predictive Analytics</h4>
+                                <p class="text-gray-700">Forecasts patient flow and resource needs to prevent
+                                    bottlenecks and optimize staffing</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary mt-1 mr-3">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Clinical Decision Support</h4>
+                                <p class="text-gray-700">Provides evidence-based recommendations to assist doctors in
+                                    diagnosis and treatment planning</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="bg-white p-4 rounded-lg shadow-lg">
+                        <img src="https://readdy.ai/api/search-image?query=Modern%20medical%20dashboard%20interface%20showing%20AI-powered%20hospital%20management%20system%20with%20patient%20scheduling%2C%20doctor%20availability%2C%20and%20medical%20data%20visualization.%20The%20interface%20should%20have%20a%20clean%2C%20professional%20design%20with%20blue%20color%20scheme%2C%20showing%20charts%2C%20calendars%2C%20and%20patient%20profiles.%20Include%20medical%20icons%20and%20data%20visualization%20elements.&width=600&height=400&seq=2&orientation=landscape"
+                            alt="AI Healthcare Dashboard" class="w-full h-auto rounded object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Flexible Pricing Plans</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Choose the perfect plan for your healthcare
+                    facility's size and needs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white border border-blue-100 rounded-lg shadow-sm p-8 pricing-card relative">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic Plan</h3>
+                    <p class="text-gray-600 mb-6">Essential tools for small practices</p>
+                    <div class="flex items-end mb-6">
+                        <span class="text-4xl font-bold text-gray-900">₹4,999</span>
+                        <span class="text-gray-600 ml-2">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Basic appointment scheduling</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Patient records management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Basic reporting</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Email support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Up to 5 staff accounts</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full py-3 text-center border border-primary text-primary !rounded-button whitespace-nowrap font-medium hover:bg-primary hover:text-white transition-colors">Get
+                        Started</a>
+                </div>
+                <!-- Professional Plan -->
+                <div
+                    class="bg-white border-2 border-primary rounded-lg shadow-md p-8 pricing-card relative z-10 transform scale-105">
+                    <div class="popular-badge bg-primary text-white text-sm font-medium py-1 px-3 rounded-full">Most
+                        Popular</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Professional Plan</h3>
+                    <p class="text-gray-600 mb-6">Advanced features for growing facilities</p>
+                    <div class="flex items-end mb-6">
+                        <span class="text-4xl font-bold text-gray-900">₹9,999</span>
+                        <span class="text-gray-600 ml-2">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Everything in Basic +</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">AI-assisted diagnosis</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Advanced analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Priority support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Up to 15 staff accounts</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Custom reports</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full py-3 text-center bg-primary text-white !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Get
+                        Started</a>
+                </div>
+                <!-- Enterprise Plan -->
+                <div class="bg-white border border-blue-100 rounded-lg shadow-sm p-8 pricing-card relative">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise Plan</h3>
+                    <p class="text-gray-600 mb-6">Complete solution for large hospitals</p>
+                    <div class="flex items-end mb-6">
+                        <span class="text-2xl font-bold text-gray-900">Custom Pricing</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Everything in Professional +</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Full AI suite</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">24/7 dedicated support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Unlimited staff accounts</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">Custom integration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-700">On-premise deployment option</span>
+                        </li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full py-3 text-center border border-primary text-primary !rounded-button whitespace-nowrap font-medium hover:bg-primary hover:text-white transition-colors">Contact
+                        Sales</a>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" class="text-primary font-medium hover:underline">Compare all features in detail →</a>
+            </div>
+        </div>
+    </section>
+    <!-- Call-to-Action Section -->
+    <section class="py-20 bg-gradient text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4">Transform Your Hospital Management Today</h2>
+                    <p class="text-xl opacity-90 mb-8">Join thousands of healthcare providers who have revolutionized
+                        their operations with our AI-powered solution.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Request a Consultation</h3>
+                            <form>
+                                <div class="mb-4">
+                                    <label class="block text-white text-sm font-medium mb-2">Hospital/Clinic
+                                        Name</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-2 !rounded-button border-none bg-white/20 text-white placeholder-white/60"
+                                        placeholder="Enter your hospital name">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-white text-sm font-medium mb-2">Email Address</label>
+                                    <input type="email"
+                                        class="w-full px-4 py-2 !rounded-button border-none bg-white/20 text-white placeholder-white/60"
+                                        placeholder="Enter your email">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-white text-sm font-medium mb-2">Phone Number</label>
+                                    <input type="tel"
+                                        class="w-full px-4 py-2 !rounded-button border-none bg-white/20 text-white placeholder-white/60"
+                                        placeholder="Enter your phone number">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="custom-checkbox mr-3">
+                                        <span class="text-sm">I agree to receive communications from Health Care of
+                                            India</span>
+                                    </label>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-white text-primary font-medium py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Schedule
+                                    Demo</button>
+                            </form>
+                        </div>
+                        <div class="flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 flex items-center justify-center mt-1 mr-3">
+                                            <i class="ri-map-pin-line"></i>
+                                        </div>
+                                        <span>123 Healthcare Avenue, Bangalore, Karnataka 560001, India</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 flex items-center justify-center mt-1 mr-3">
+                                            <i class="ri-phone-line"></i>
+                                        </div>
+                                        <span>+91 80 1234 5678</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="w-6 h-6 flex items-center justify-center mt-1 mr-3">
+                                            <i class="ri-mail-line"></i>
+                                        </div>
+                                        <span>info@healthcareofindia.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="font-medium mb-3">Trusted By Leading Healthcare Institutions</h4>
+                                <div class="flex flex-wrap gap-4">
+                                    <div class="bg-white/20 rounded px-3 py-2 text-sm">AIIMS Delhi</div>
+                                    <div class="bg-white/20 rounded px-3 py-2 text-sm">Apollo Hospitals</div>
+                                    <div class="bg-white/20 rounded px-3 py-2 text-sm">Fortis Healthcare</div>
+                                    <div class="bg-white/20 rounded px-3 py-2 text-sm">Max Healthcare</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a style="width: 200px;height: 65px;" href="#" class="text-2xl font-['Pacifico'] text-white mb-6 block"><img src="https://i.ibb.co/WNZbdhpS/Whats-App-Image-2025-07-07-at-6-02-51-PM-removebg-preview.png" style="width: 200px;
+    height: -webkit-fill-available;
+    object-fit: cover;" alt="Health care of india"></a>
+                    <p class="text-gray-400 mb-6">Revolutionizing healthcare management with AI-powered solutions that
+                        enhance patient care and operational efficiency.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full">
+                                <i class="ri-facebook-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full">
+                                <i class="ri-twitter-x-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full">
+                                <i class="ri-linkedin-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full">
+                                <i class="ri-instagram-fill"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI Diagnosis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Patient Management</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Appointment
+                                Scheduling</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Medical Records</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Billing & Invoicing</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Analytics Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with our latest news and updates</p>
+                    <form>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address"
+                                class="px-4 py-2 w-full bg-gray-800 border-none !rounded-l-button text-white">
+                            <button type="submit"
+                                class="bg-primary text-white px-4 !rounded-r-button whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="mt-6">
+                        <h4 class="text-sm font-semibold mb-3">Payment Methods</h4>
+                        <div class="flex space-x-3">
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-visa-fill ri-lg"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-mastercard-fill ri-lg"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-paypal-fill ri-lg"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-amazon-pay-fill ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Health Care of India. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of
+                            Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script id="mobileMenuScript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.querySelector('.ri-menu-line').parentElement.parentElement;
+            const nav = document.querySelector('nav');
+            menuButton.addEventListener('click', function () {
+                if (nav.classList.contains('hidden')) {
+                    nav.classList.remove('hidden');
+                    nav.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-6', 'space-y-4', 'z-50');
+                    menuButton.querySelector('i').classList.remove('ri-menu-line');
+                    menuButton.querySelector('i').classList.add('ri-close-line');
+                } else {
+                    nav.classList.add('hidden');
+                    nav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-6', 'space-y-4', 'z-50');
+                    menuButton.querySelector('i').classList.add('ri-menu-line');
+                    menuButton.querySelector('i').classList.remove('ri-close-line');
+                }
+            });
+        });
+    </script>
+    <script id="checkboxScript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkbox = document.querySelector('.custom-checkbox');
+            checkbox.addEventListener('click', function () {
+                this.checked = !this.checked;
+            });
+        });
+    </script>
+</body>
+
+</html>
